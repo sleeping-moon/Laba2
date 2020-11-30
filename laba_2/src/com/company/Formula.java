@@ -5,16 +5,9 @@ import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.BorderFactory;
-import javax.swing.Box;
-import javax.swing.ButtonGroup;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JRadioButton;
-import javax.swing.JTextField;
-@SuppressWarnings("serial")
+import javax.swing.*;
+
+//@SuppressWarnings("serial")
 //V3
 public class Formula extends JFrame {
 
@@ -48,7 +41,6 @@ public class Formula extends JFrame {
         hboxFormulaType.add(button);
     }
 
-
     public Formula() {
         super("Вычисление формулы");
         setSize(WIDTH, HEIGHT);
@@ -60,16 +52,13 @@ public class Formula extends JFrame {
         addRadioButton("Формула 2", 2);
         radioButtons.setSelected(radioButtons.getElements().nextElement().getModel(), true);
         hboxFormulaType.add(Box.createHorizontalGlue());
-       // hboxFormulaType.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
-
+        hboxFormulaType.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
         JLabel labelForX = new JLabel("X:");
         textFieldX = new JTextField("0", 10);
         textFieldX.setMaximumSize(textFieldX.getPreferredSize());
-
         JLabel labelForZ = new JLabel("Z:");
         textFieldZ = new JTextField("0", 10);
         textFieldZ.setMaximumSize(textFieldZ.getPreferredSize());
-
         JLabel labelForY = new JLabel("Y:");
         textFieldY = new JTextField("0", 10);
         textFieldY.setMaximumSize(textFieldY.getPreferredSize());
@@ -100,7 +89,7 @@ public class Formula extends JFrame {
         hboxResult.add(Box.createHorizontalStrut(10));
         hboxResult.add(textFieldResult);
         hboxResult.add(Box.createHorizontalGlue());
-       // hboxResult.setBorder(BorderFactory.createLineBorder(Color.BLUE)); // Создать область для кнопок
+        hboxResult.setBorder(BorderFactory.createLineBorder(Color.BLUE)); // Создать область для кнопок
         JButton MC = new JButton("MC");
         JButton M = new JButton("M+");
         JButton buttonCalc = new JButton("Вычислить");
@@ -150,7 +139,7 @@ public class Formula extends JFrame {
         hboxButtons.add(Box.createHorizontalStrut(30));
         hboxButtons.add(buttonReset);
         hboxButtons.add(Box.createHorizontalGlue());
-       // hboxButtons.setBorder(BorderFactory.createLineBorder(Color.GREEN));
+        //hboxButtons.setBorder(BorderFactory.createLineBorder(Color.GREEN));
         Box contentBox = Box.createVerticalBox();
         contentBox.add(Box.createVerticalGlue());
         contentBox.add(hboxFormulaType);
@@ -159,5 +148,6 @@ public class Formula extends JFrame {
         contentBox.add(hboxButtons);
         contentBox.add(Box.createVerticalGlue());
         getContentPane().add(contentBox, BorderLayout.CENTER);
+
     }
 }
